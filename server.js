@@ -3,7 +3,7 @@ const app = express();
 var path = require('path')
 const server = require('http').createServer(app);
 var cors = require('cors')
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT);
 console.log(`Server is running on port ${PORT}`);
 
