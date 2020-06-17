@@ -21,7 +21,7 @@ $('.usrInput').on('keyup keypress', function (e) {
 function setUserResponse(val) {
 
 
-	var UserResponse = '<img class="userAvatar" src=' + "./static/img/userAvatar.jpg" + '><p class="userMsg">' + val + ' </p><div class="clearfix"></div>';
+	var UserResponse = '<img class="userAvatar" src=' + "/img/userAvatar.jpg" + '><p class="userMsg">' + val + ' </p><div class="clearfix"></div>';
 	$(UserResponse).appendTo('.chats').show('slow');
 	$(".usrInput").val('');
 	scrollToBottomOfResults();
@@ -89,7 +89,7 @@ function setBotResponse(val) {
 			//if there is no response from Rasa
 			msg = "I couldn't get that. Let's try something else!";
 			
-			var BotResponse = '<img class="botAvatar" src="./static/img/botAvatar.jpg"><p class="botMsg">' + msg + '</p><div class="clearfix"></div>';
+			var BotResponse = '<img class="botAvatar" src="/img/botAvatar.jpg"><p class="botMsg">' + msg + '</p><div class="clearfix"></div>';
 			$(BotResponse).appendTo('.chats').hide().fadeIn(1000);
 			Speak(msg)
 
@@ -98,7 +98,7 @@ function setBotResponse(val) {
 			for (i = 0; i < val.length; i++) {
 				//check if there is text message
 				if (val[i].hasOwnProperty("text")) {
-					var BotResponse = '<img class="botAvatar" src="./static/img/botAvatar.jpg"><p class="botMsg">' + val[i].text + '</p><div class="clearfix"></div>';
+					var BotResponse = '<img class="botAvatar" src="/img/botAvatar.jpg"><p class="botMsg">' + val[i].text + '</p><div class="clearfix"></div>';
 					$(BotResponse).appendTo('.chats').hide().fadeIn(1000);
 					Speak(val[i].text);
 				}
