@@ -46,7 +46,7 @@ if(speechSynthesis !== undefined){
 
 function Speak(message){
 	var toSpeak = new SpeechSynthesisUtterance(message);
-	toSpeak.voice = voices[1];
+	toSpeak.voice = voices[0];
 	synth.speak(toSpeak);
 }
 
