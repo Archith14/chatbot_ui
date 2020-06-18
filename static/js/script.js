@@ -35,25 +35,16 @@ function scrollToBottomOfResults() {
 }
 
 //---------------------------------- Speech Synthesis--------------------------------------------------
-var synth = window.speechSynthesis;
-var voices = [];
-
-PopulateVoices();
-
-if(speechSynthesis !== undefined){
-	speechSynthesis.onvoiceschanged = PopulateVoices;
+const voiceschanged = () => {
+  speechSynthesis.getVoices();
 }
+speechSynthesis.onvoiceschanged = voiceschanged();
 
 function Speak(message){
-	var toSpeak = new SpeechSynthesisUtterance(message);
-	toSpeak.voice = voices[0];
-	synth.speak(toSpeak);
+	var msg = new SpeechSynthesisUtterance(message);
+	msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == "Microsoft Zira Desktop - English (United States)"; })[0];
+	speechSynthesis.speak(msg);
 }
-
-function PopulateVoices(){
-	voices = synth.getVoices();
-}
-
 //---------------------------------------------------------------------------------------------------------
 
 function send(message) {
@@ -96,7 +87,7 @@ function setBotResponse(val) {
 			
 			var BotResponse = '<img class="botAvatar" src="/img/botAvatar.jpg"><p class="botMsg">' + msg + '</p><div class="clearfix"></div>';
 			$(BotResponse).appendTo('.chats').hide().fadeIn(1000);
-			Speak(msg)
+			Speak(msg);
 
 		} else {
 			//if we get response from Rasa
