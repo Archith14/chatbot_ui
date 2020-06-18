@@ -68,7 +68,7 @@ function send(message) {
             'Access-Control-Allow-Origin': '*',
             'Content-Type':'application/json'
         },
-		dataType: 'jsonp',
+		//dataType: 'jsonp',
 		data: JSON.stringify({
 			"message": message,
 			"sender": "Archith"
