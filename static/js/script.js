@@ -61,8 +61,14 @@ function send(message) {
 	$.ajax({
 		url: "https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
 		type: 'POST',
-		contentType: 'application/json',
-		crossOrigin: true,
+		//contentType: 'application/json',
+		//crossOrigin: true,
+		//crossDomain: true,
+		headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type':'application/json'
+        },
+		dataType: 'jsonp',
 		data: JSON.stringify({
 			"message": message,
 			"sender": "Archith"
