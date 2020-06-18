@@ -59,7 +59,7 @@ function PopulateVoices(){
 function send(message) {
 	console.log("User Message:", message);
 	$.ajax({
-		url: "http://rasa-backend.herokuapp.com/webhooks/rest/webhook",
+		url: "https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
 		type: 'POST',
 		contentType: 'application/json',
 		data: JSON.stringify({
