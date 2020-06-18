@@ -62,6 +62,7 @@ function send(message) {
 		url: "https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
 		type: 'POST',
 		contentType: 'application/json',
+		crossOrigin: true,
 		data: JSON.stringify({
 			"message": message,
 			"sender": "Archith"
