@@ -59,16 +59,16 @@ function PopulateVoices(){
 function send(message) {
 	console.log("User Message:", message);
 	$.ajax({
-		url: "https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
+		url: "https://cors-anywhere.herokuapp.com/https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
 		type: 'POST',
-		//contentType: 'application/json',
-		crossOrigin: true,
-		crossDomain: true,
-		headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type':'application/json'
-        },
+		contentType: 'application/json',
+		//crossOrigin: true,
+		//crossDomain: true,
 		//dataType: 'jsonp',
+		/*headers: {
+            'Access-Control-Allow-Origin': '*',
+			'Content-Type':'application/json'
+        },*/
 		data: JSON.stringify({
 			"message": message,
 			"sender": "Archith"
