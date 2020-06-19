@@ -50,16 +50,9 @@ function Speak(message){
 function send(message) {
 	console.log("User Message:", message);
 	$.ajax({
-		url: "https://cors-anywhere.herokuapp.com/https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
+		url: "https://rasa-backend.herokuapp.com/webhooks/rest/webhook",
 		type: 'POST',
 		contentType: 'application/json',
-		//crossOrigin: true,
-		//crossDomain: true,
-		//dataType: 'jsonp',
-		/*headers: {
-            'Access-Control-Allow-Origin': '*',
-			'Content-Type':'application/json'
-        },*/
 		data: JSON.stringify({
 			"message": message,
 			"sender": "Archith"
