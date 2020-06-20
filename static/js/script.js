@@ -1,4 +1,4 @@
-// on input/text enter--------------------------------------------------------------------------------------
+//------------------------------------ on input/text enter-----------------------------------
 $('.usrInput').on('keyup keypress', function (e) {
 	var keyCode = e.keyCode || e.which;
 	var text = $(".usrInput").val();
@@ -7,7 +7,6 @@ $('.usrInput').on('keyup keypress', function (e) {
 			e.preventDefault();
 			return false;
 		} else {
-			//$(".usrInput").blur();
 			setUserResponse(text);
 			send(text);
 			e.preventDefault();
@@ -19,8 +18,6 @@ $('.usrInput').on('keyup keypress', function (e) {
 
 //------------------------------------- Set user response------------------------------------
 function setUserResponse(val) {
-
-
 	var UserResponse = '<img class="userAvatar" src=' + "/img/userAvatar.jpg" + '><p class="userMsg">' + val + ' </p><div class="clearfix"></div>';
 	$(UserResponse).appendTo('.chats').show('slow');
 	$(".usrInput").val('');
@@ -114,17 +111,46 @@ function setBotResponse(val) {
 
 
 // ------------------------------------------ Toggle chatbot -----------------------------------------------
+
+var chatbot_state = "close";
+
 $('#profile_div').click(function () {
-	$('.profile_div').toggle();
-	$('.widget').toggle();
-	scrollToBottomOfResults();
+	
+	if(chatbot_state == "close"){ //open
+		$('.widget').toggle();
+		scrollToBottomOfResults();
+		$("#notification").css("display", "none");
+		$('.imgProfile').attr("src", "/img/close-icon.png");
+		chatbot_state = "open";
+	}
+	
+	else if(chatbot_state == "open"){ //close
+		$('.widget').toggle();
+		$('.imgProfile').attr("src", "/img/botAvatar.jpg");
+		chatbot_state = "close";
+	}
+	
 });
 
-$('#close').click(function () {
-	$('.profile_div').toggle();
+$('#close').click(function () {	//close
 	$('.widget').toggle();
+	$('.imgProfile').attr("src", "/img/botAvatar.jpg");
+	chatbot_state = "close";
 });
 
+// ------------------------------------------ Notification Hover -----------------------------------------------
+
+$('#profile_div').hover(
+  function() { //entry
+    if(chatbot_state == "close"){
+		$("#notification").css("display", "block");
+	}else {
+		$("#notification").css("display", "none");
+	}
+  }, function() { //exit
+	$("#notification").css("display", "none");
+  }
+);
 
 // ------------------------------------------ Suggestions -----------------------------------------------
 

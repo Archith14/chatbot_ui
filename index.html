@@ -1,6 +1,7 @@
 <html>
    <head>
       <title>ChatBot</title>
+	  <link rel="icon" href="/img/icon.ico">
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -15,11 +16,15 @@
       <div class="container">
          <div class="widget">
             <div class="chat_header">
+				<img src="/img/botAvatar.jpg" style="position: absolute;height: 40px;width: 40px;border-radius: 100%;top: 10px;">
                <!--Add the name of the bot here -->
-               <span style="color:white;margin-left: 5px;">Track your shipment</span>
-               <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+               <span style="color:white;margin-left: 50px;position: absolute;">Maya</span>
+			   <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
                <i class="material-icons">close</i>
                </span>
+			   <br>
+			   <span style="color:white;margin-left: 50px;position: absolute;top: 30px;">Track your shipment</span>
+               
             </div>
             <!--Chatbot contents goes here -->
             <div class="chats" id="chats">
@@ -27,9 +32,9 @@
             </div>
             <!--user typing indicator -->
             <div class="keypad" >
-               <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off"  autofocus>
-			   <button id="microphone" class="usrInput keypad" style="width: 27px; margin-left: 1px; height: 40px; top: 0px; padding: inherit;cursor: pointer">
-			   <img src="https://police.un.org/sites/default/files/radio-microphone.png" style="width: 20px;">
+               <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+			   <button id="microphone" class="usrInput keypad">
+			   <img src="/img/microphone.png" style="width: 20px;">
 			   </button>
             </div>
          </div>
@@ -37,10 +42,17 @@
          <div class="profile_div" id="profile_div">
             <img class="imgProfile" src="/img/botAvatar.jpg"/>
          </div>
+		 
+		 <div id="notification" class="hidden" style="bottom: 80px;">
+			<div class="close-btn" onclick="window.ymCloseNotification(event);">x</div>
+			<div style="font-weight: bold;">Maya</div>
+			Hello, I am Maya 👋. How may I help you? <br>Get started by asking
+		</div>		 		 
+		 
       </div>
       <!--JavaScript at end of body for optimized loading-->
-      <script src="/js/jquery.min.js"></script>
-      <script type="text/javascript" src="/js/materialize.min.js"></script>
+     <script src="/js/jquery.min.js"></script>
+	 <script type="text/javascript" src="/js/materialize.min.js"></script>
       <!--Main Script -->
       <script type="text/javascript" src="/js/script.js"></script>
 	  <script type="text/javascript" src="/js/voice_speech.js"></script>
